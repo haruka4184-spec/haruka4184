@@ -2,458 +2,159 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>한국영양과학연구소 | 건강 컨설팅</title>
-  <meta name="description" content="의료기관이 아닌, 신뢰 중심의 건강 컨설팅 기관. 방문 상담 중심, 전화/카카오톡 상담 운영." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>한국영양과학연구소</title>
 
   <style>
-    :root{
-      --bg:#0b1220;
-      --card:#0f1a2f;
-      --line:rgba(255,255,255,.10);
-      --text:rgba(255,255,255,.92);
-      --muted:rgba(255,255,255,.70);
-      --brand:#6aa7ff;
-      --brand2:#8ef0c8;
-      --pill:rgba(255,255,255,.10);
-      --shadow: 0 14px 40px rgba(0,0,0,.35);
-      --radius: 18px;
+    body {
+      margin: 0;
+      font-family: "Noto Sans KR", system-ui, sans-serif;
+      background: #f9fbfd;
+      color: #222;
+      line-height: 1.7;
     }
 
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"Noto Sans KR",system-ui,sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(1200px 500px at 15% 0%, rgba(106,167,255,.25), transparent 60%),
-        radial-gradient(900px 500px at 90% 10%, rgba(142,240,200,.18), transparent 55%),
-        linear-gradient(180deg, #071022, #071022 30%, #050a14);
-      overflow-x:hidden;
-    }
-    a{color:inherit}
-    .container{max-width:1080px; margin:0 auto; padding:24px 18px 70px}
-    .topbar{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:14px;
-      padding:14px 0 22px;
-      position:sticky; top:0;
-      background: linear-gradient(180deg, rgba(7,16,34,.92), rgba(7,16,34,.65), transparent);
-      backdrop-filter: blur(8px);
-      z-index:10;
-    }
-    .logo{
-      display:flex; align-items:center; gap:10px;
-      font-weight:900; letter-spacing:-.5px;
-    }
-    .mark{
-      width:34px; height:34px; border-radius:12px;
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
-      box-shadow: 0 12px 25px rgba(106,167,255,.22);
-    }
-    .logo small{display:block; font-weight:700; color:var(--muted); margin-top:2px}
-    .nav{display:flex; flex-wrap:wrap; gap:8px; justify-content:flex-end}
-    .nav a{
-      text-decoration:none;
-      padding:9px 12px;
-      border:1px solid var(--line);
-      border-radius:999px;
-      background: rgba(255,255,255,.04);
-      font-weight:700;
-      font-size:13px;
-      color:var(--muted);
-    }
-    .nav a:hover{background:rgba(255,255,255,.09); color:var(--text)}
-
-    /* Hero */
-    .hero{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:18px;
-      align-items:stretch;
-      margin-top:10px;
-    }
-    @media (max-width: 900px){
-      .hero{grid-template-columns:1fr}
-      .nav{justify-content:flex-start}
-    }
-    .hero-left{
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.04);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position:relative;
-    }
-    .hero-left .inner{padding:26px 22px}
-    h1{
-      margin:0;
-      font-size:40px;
-      line-height:1.15;
-      letter-spacing:-1px;
-    }
-    .lead{
-      margin:12px 0 0;
-      color:var(--muted);
-      line-height:1.75;
-      font-size:15.5px;
-    }
-    .badges{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px}
-    .badge{
-      padding:7px 10px;
-      border:1px solid var(--line);
-      border-radius:999px;
-      background: rgba(255,255,255,.04);
-      font-weight:800;
-      font-size:12.5px;
-      color:rgba(255,255,255,.80);
-    }
-    .cta{
-      display:flex; flex-wrap:wrap; gap:10px;
-      margin-top:18px;
-    }
-    .btn{
-      text-decoration:none;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      padding:12px 14px;
-      border-radius:14px;
-      font-weight:900;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.06);
-      color:var(--text);
-    }
-    .btn.primary{
-      background: linear-gradient(135deg, var(--brand), #4a7dff);
-      border: none;
-      color:#061022;
-    }
-    .btn.kakao{
-      background: linear-gradient(135deg, #ffe266, #ffd000);
-      border:none;
-      color:#181200;
-    }
-    .btn:hover{transform: translateY(-1px)}
-    .note{
-      margin-top:10px;
-      color:rgba(255,255,255,.62);
-      font-size:12.8px;
-      line-height:1.6;
+    header {
+      background: white;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 16px 24px;
+      font-weight: 700;
+      font-size: 18px;
     }
 
-    .hero-right{
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      overflow:hidden;
-      background: rgba(255,255,255,.03);
-      box-shadow: var(--shadow);
-      display:flex;
-      flex-direction:column;
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 20px;
     }
-    .hero-img{
-      height:230px;
-      background:
-        linear-gradient(135deg, rgba(106,167,255,.35), rgba(142,240,200,.22)),
-        url("https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=1200&q=60");
-      background-size: cover;
-      background-position: center;
-    }
-    .hero-card{
-      padding:18px 18px 20px;
-    }
-    .mini-title{font-weight:900; letter-spacing:-.3px; margin:0 0 10px}
-    .mini{
-      display:grid; gap:10px;
-    }
-    .mini .row{
-      display:flex; justify-content:space-between; gap:12px;
-      padding:12px 12px;
-      border:1px solid var(--line);
-      border-radius:14px;
-      background: rgba(255,255,255,.04);
-      color:rgba(255,255,255,.82);
-      font-size:13.5px;
-    }
-    .mini .row b{color:var(--text)}
-    .mini a{color:var(--text); text-decoration:none}
-    .mini a:hover{text-decoration:underline}
 
-    /* Sections */
-    .section{
-      margin-top:22px;
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.03);
-      box-shadow: var(--shadow);
-      overflow:hidden;
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      align-items: center;
     }
-    .section .head{
-      display:flex; align-items:flex-end; justify-content:space-between;
-      gap:12px;
-      padding:18px 18px 12px;
-      border-bottom:1px solid var(--line);
-    }
-    .section h2{
-      margin:0;
-      font-size:20px;
-      letter-spacing:-.4px;
-    }
-    .section .desc{
-      margin:0;
-      color:var(--muted);
-      font-size:13.5px;
-      line-height:1.6;
-      max-width: 720px;
-    }
-    .section .body{padding:16px 18px 18px}
 
-    .cards{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:12px;
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 16px;
     }
-    @media (max-width: 900px){
-      .cards{grid-template-columns:1fr}
-    }
-    .card{
-      border:1px solid var(--line);
-      border-radius:16px;
-      background: rgba(255,255,255,.04);
-      padding:14px 14px 15px;
-    }
-    .card h3{margin:0 0 8px; font-size:16px}
-    .card p{margin:0; color:rgba(255,255,255,.76); line-height:1.7; font-size:13.5px}
 
-    .steps{
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap:10px;
+    .hero p {
+      font-size: 16px;
+      color: #555;
     }
-    @media (max-width: 900px){ .steps{grid-template-columns:1fr} }
-    .step{
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:14px;
-      background: rgba(255,255,255,.04);
-    }
-    .step .n{
-      display:inline-flex; align-items:center; justify-content:center;
-      width:28px; height:28px; border-radius:10px;
-      background: rgba(255,255,255,.10);
-      border:1px solid var(--line);
-      font-weight:900;
-      margin-bottom:10px;
-    }
-    .step b{display:block; margin-bottom:6px}
-    .step span{color:rgba(255,255,255,.76); font-size:13.2px; line-height:1.65}
 
-    .contact-box{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:12px;
+    .buttons {
+      margin-top: 24px;
     }
-    @media (max-width: 900px){ .contact-box{grid-template-columns:1fr} }
-    .contact-item{
-      border:1px solid var(--line);
-      border-radius:16px;
-      background: rgba(255,255,255,.04);
-      padding:14px;
-    }
-    .contact-item small{color:var(--muted); display:block; margin-bottom:6px}
-    .contact-item a{font-weight:900; text-decoration:none}
-    .contact-item a:hover{text-decoration:underline}
 
-    footer{
-      margin-top:22px;
-      color:rgba(255,255,255,.55);
-      font-size:12.8px;
-      line-height:1.6;
-      text-align:center;
+    .btn {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-right: 10px;
+    }
+
+    .btn-primary {
+      background: #2f80ed;
+      color: white;
+    }
+
+    .btn-outline {
+      border: 1px solid #2f80ed;
+      color: #2f80ed;
+      background: white;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    .info {
+      margin-top: 48px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    footer {
+      background: #ffffff;
+      border-top: 1px solid #e5e7eb;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <div class="topbar">
-      <div class="logo">
-        <span class="mark" aria-hidden="true"></span>
-        <div>
-          한국영양과학연구소
-          <small>신뢰 중심 건강 컨설팅</small>
-        </div>
+
+<header>
+  한국영양과학연구소
+</header>
+
+<div class="container">
+
+  <section class="hero">
+    <div>
+      <h1>의료기관이 아닌,<br>최적의 건강 컨설팅 기관</h1>
+      <p>
+        고객과 환자의 신뢰를 중심으로<br>
+        생활습관·영양·상담을 종합적으로 안내합니다.<br>
+        방문 상담을 가장 중요하게 생각하며<br>
+        전화·카카오톡 상담도 함께 운영합니다.
+      </p>
+
+      <div class="buttons">
+        <a href="tel:064-712-0514" class="btn btn-primary">전화 상담하기</a>
+        <a href="https://open.kakao.com/o/sAcobg7h" class="btn btn-outline">카카오톡 상담</a>
       </div>
-      <nav class="nav">
-        <a href="#about">소개</a>
-        <a href="#services">서비스</a>
-        <a href="#process">상담절차</a>
-        <a href="#contact">문의</a>
-      </nav>
     </div>
 
-    <!-- HERO -->
-    <section class="hero" id="top">
-      <div class="hero-left">
-        <div class="inner">
-          <h1>의료기관이 아닌,<br>최적의 건강 컨설팅 기관</h1>
-          <p class="lead">
-            고객/환자 신뢰를 중심으로, 개인의 생활 습관과 현재 상태를 종합적으로 살펴
-            맞춤형 건강 컨설팅을 제공합니다.<br>
-            <b>방문 상담</b>을 가장 중요하게 생각하며, <b>전화/카카오톡 상담</b>도 함께 운영합니다.
-          </p>
+    <div class="card">
+      <strong>빠른 안내</strong><br><br>
+      📞 전화: 064-712-0514<br>
+      💬 카카오톡 오픈채팅 가능<br>
+      🏥 방문 상담 우선
+    </div>
+  </section>
 
-          <div class="badges">
-            <span class="badge">방문 상담 중심</span>
-            <span class="badge">전화 상담</span>
-            <span class="badge">카카오톡 상담</span>
-            <span class="badge">맞춤 컨설팅</span>
-          </div>
+  <section class="info">
+    <div class="card">
+      <strong>신뢰 중심</strong>
+      <p>과장 없는 정보와 장기적인 건강 관리를 목표로 합니다.</p>
+    </div>
 
-          <div class="cta">
-            <a class="btn primary" href="tel:064-712-0514">📞 전화 상담하기</a>
-            <a class="btn kakao" href="https://open.kakao.com/o/sAcobg7h" target="_blank" rel="noopener">💬 카톡 오픈채팅</a>
-            <a class="btn" href="#contact">문의 정보 보기</a>
-          </div>
+    <div class="card">
+      <strong>맞춤 컨설팅</strong>
+      <p>개인의 상태에 맞춘 현실적인 건강 상담을 제공합니다.</p>
+    </div>
 
-          <div class="note">
-            * 본 사이트는 건강 정보 및 상담 안내를 위한 것으로, 의료행위(진단/처방)를 제공하지 않습니다.
-          </div>
-        </div>
-      </div>
+    <div class="card">
+      <strong>방문 상담 우선</strong>
+      <p>직접 만나는 상담을 가장 중요하게 생각합니다.</p>
+    </div>
+  </section>
 
-      <aside class="hero-right">
-        <div class="hero-img" aria-label="연구소 이미지"></div>
-        <div class="hero-card">
-          <p class="mini-title">빠른 안내</p>
-          <div class="mini">
-            <div class="row"><span>전화</span> <b><a href="tel:064-712-0514">064-712-0514</a></b></div>
-            <div class="row"><span>카톡 오픈채팅</span> <b><a href="https://open.kakao.com/o/sAcobg7h" target="_blank" rel="noopener">바로가기</a></b></div>
-            <div class="row"><span>상담 방식</span> <b>방문 우선 · 비대면 가능</b></div>
-          </div>
-        </div>
-      </aside>
-    </section>
+</div>
 
-    <!-- ABOUT -->
-    <section class="section" id="about">
-      <div class="head">
-        <div>
-          <h2>연구소 소개</h2>
-          <p class="desc">신뢰를 기반으로, 일상에서 실행 가능한 건강 관리 방향을 함께 설계합니다.</p>
-        </div>
-      </div>
-      <div class="body">
-        <div class="cards">
-          <div class="card">
-            <h3>신뢰 중심</h3>
-            <p>과장된 표현보다, 현재 상태를 이해하고 “지속 가능한 방법”을 안내합니다.</p>
-          </div>
-          <div class="card">
-            <h3>맞춤형 컨설팅</h3>
-            <p>생활습관·식습관·목표를 함께 확인하고, 개인에게 맞는 관리 루틴을 제안합니다.</p>
-          </div>
-          <div class="card">
-            <h3>방문 상담 우선</h3>
-            <p>상담의 핵심은 ‘직접 확인’입니다. 필요 시 전화/카카오톡으로도 안내합니다.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+<footer>
+  © 한국영양과학연구소 · GitHub Pages
+</footer>
 
-    <!-- SERVICES -->
-    <section class="section" id="services">
-      <div class="head">
-        <div>
-          <h2>서비스</h2>
-          <p class="desc">“어렵지 않게, 꾸준히 가능한” 건강 관리 방향을 제안합니다.</p>
-        </div>
-      </div>
-      <div class="body">
-        <div class="cards">
-          <div class="card">
-            <h3>개인 맞춤 상담</h3>
-            <p>현재 상태/목표/생활패턴을 기반으로 관리 방향을 함께 정리합니다.</p>
-          </div>
-          <div class="card">
-            <h3>식습관 & 루틴 가이드</h3>
-            <p>현실적으로 실행 가능한 식단/생활 루틴을 단계별로 제안합니다.</p>
-          </div>
-          <div class="card">
-            <h3>장기 관리 컨설팅</h3>
-            <p>변화를 유지할 수 있도록 점검·조정·코칭 중심으로 운영합니다.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROCESS -->
-    <section class="section" id="process">
-      <div class="head">
-        <div>
-          <h2>상담 절차</h2>
-          <p class="desc">처음 오시는 분도 부담 없이 진행할 수 있도록 간단하게 구성했습니다.</p>
-        </div>
-      </div>
-      <div class="body">
-        <div class="steps">
-          <div class="step">
-            <div class="n">1</div>
-            <b>문의</b>
-            <span>전화 또는 카톡 오픈채팅으로 상담 문의를 주세요.</span>
-          </div>
-          <div class="step">
-            <div class="n">2</div>
-            <b>방문 상담(권장)</b>
-            <span>상담은 방문이 가장 중요합니다. 상황에 따라 비대면도 가능해요.</span>
-          </div>
-          <div class="step">
-            <div class="n">3</div>
-            <b>맞춤 제안</b>
-            <span>생활 습관과 목표에 맞는 실행 가능한 관리 방향을 제안합니다.</span>
-          </div>
-          <div class="step">
-            <div class="n">4</div>
-            <b>지속 관리</b>
-            <span>필요 시 점검/조정/코칭으로 꾸준히 이어갈 수 있게 돕습니다.</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="section" id="contact">
-      <div class="head">
-        <div>
-          <h2>문의</h2>
-          <p class="desc">아래 채널로 편하게 연락 주세요.</p>
-        </div>
-      </div>
-      <div class="body">
-        <div class="contact-box">
-          <div class="contact-item">
-            <small>전화</small>
-            <a href="tel:064-712-0514">064-712-0514</a>
-          </div>
-          <div class="contact-item">
-            <small>카카오톡 오픈채팅</small>
-            <a href="https://open.kakao.com/o/sAcobg7h" target="_blank" rel="noopener">https://open.kakao.com/o/sAcobg7h</a>
-          </div>
-        </div>
-
-        <div class="cta" style="margin-top:14px">
-          <a class="btn primary" href="tel:064-712-0514">📞 전화 상담하기</a>
-          <a class="btn kakao" href="https://open.kakao.com/o/sAcobg7h" target="_blank" rel="noopener">💬 카톡 상담</a>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      © 한국영양과학연구소 · All rights reserved.<br>
-      * 본 사이트는 건강 상담 안내 목적이며 의료기관이 아닙니다.
-    </footer>
-  </div>
 </body>
 </html>
 
