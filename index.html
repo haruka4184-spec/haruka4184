@@ -8,92 +8,111 @@
   <style>
     body {
       margin: 0;
-      font-family: "Noto Sans KR", system-ui, sans-serif;
-      background: #f9fbfd;
+      font-family: -apple-system, BlinkMacSystemFont, "Noto Sans KR", sans-serif;
       color: #222;
-      line-height: 1.7;
-    }
-
-    header {
-      background: white;
-      border-bottom: 1px solid #e5e7eb;
-      padding: 16px 24px;
-      font-weight: 700;
-      font-size: 18px;
+      background: #ffffff;
+      line-height: 1.6;
     }
 
     .container {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 48px 20px;
+      padding: 80px 20px;
     }
 
+    h1 {
+      font-size: 42px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 17px;
+      color: #555;
+    }
+
+    /* Hero */
     .hero {
       display: grid;
-      grid-template-columns: 1.2fr 1fr;
+      grid-template-columns: 1.1fr 0.9fr;
       gap: 40px;
       align-items: center;
     }
 
-    .hero h1 {
-      font-size: 36px;
-      margin-bottom: 16px;
-    }
-
-    .hero p {
-      font-size: 16px;
-      color: #555;
+    .hero img {
+      width: 100%;
+      border-radius: 16px;
     }
 
     .buttons {
-      margin-top: 24px;
+      margin-top: 30px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
     }
 
     .btn {
-      display: inline-block;
       padding: 14px 22px;
       border-radius: 8px;
-      font-weight: 600;
+      font-size: 16px;
       text-decoration: none;
-      margin-right: 10px;
+      font-weight: 600;
     }
 
     .btn-primary {
       background: #2f80ed;
-      color: white;
+      color: #fff;
     }
 
     .btn-outline {
-      border: 1px solid #2f80ed;
+      border: 2px solid #2f80ed;
       color: #2f80ed;
-      background: white;
     }
 
-    .card {
-      background: white;
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    /* Section */
+    .section {
+      margin-top: 120px;
     }
 
-    .info {
-      margin-top: 48px;
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .grid img {
+      width: 100%;
+      border-radius: 16px;
+    }
+
+    .info-box {
+      background: #f5f8fc;
+      border-radius: 16px;
+      padding: 30px;
+      margin-top: 30px;
+    }
+
+    .info-box p {
+      margin: 8px 0;
+      font-size: 16px;
     }
 
     footer {
-      background: #ffffff;
-      border-top: 1px solid #e5e7eb;
+      margin-top: 140px;
+      padding: 40px 20px;
+      background: #f2f2f2;
       text-align: center;
-      padding: 20px;
       font-size: 14px;
       color: #666;
     }
 
-    @media (max-width: 768px) {
-      .hero {
+    @media (max-width: 900px) {
+      .hero, .grid {
         grid-template-columns: 1fr;
       }
     }
@@ -102,59 +121,67 @@
 
 <body>
 
-<header>
-  한국영양과학연구소
-</header>
-
-<div class="container">
-
-  <section class="hero">
+  <!-- HERO -->
+  <div class="container hero">
     <div>
-      <h1>의료기관이 아닌,<br>최적의 건강 컨설팅 기관</h1>
+      <h1>
+        세포과학을 기반으로 한<br/>
+        맞춤 영양 컨설팅
+      </h1>
+
       <p>
-        고객과 환자의 신뢰를 중심으로<br>
-        생활습관·영양·상담을 종합적으로 안내합니다.<br>
-        방문 상담을 가장 중요하게 생각하며<br>
-        전화·카카오톡 상담도 함께 운영합니다.
+        한국영양과학연구소는 세포과학과 영양과학을 바탕으로<br/>
+        개인의 생활습관과 현재 상태를 종합적으로 분석하여<br/>
+        **지속 가능한 건강 관리 방향**을 함께 설계합니다.
       </p>
 
       <div class="buttons">
-        <a href="tel:064-712-0514" class="btn btn-primary">전화 상담하기</a>
+        <a href="tel:0647120514" class="btn btn-primary">전화 상담하기</a>
         <a href="https://open.kakao.com/o/sAcobg7h" class="btn btn-outline">카카오톡 상담</a>
       </div>
     </div>
 
-    <div class="card">
-      <strong>빠른 안내</strong><br><br>
-      📞 전화: 064-712-0514<br>
-      💬 카카오톡 오픈채팅 가능<br>
-      🏥 방문 상담 우선
+    <img src="images/hero.jpg" alt="건강 컨설팅 이미지">
+  </div>
+
+  <!-- CELL SCIENCE -->
+  <div class="container section">
+    <div class="grid">
+      <img src="images/cell-nutrition.jpg" alt="세포 영양 이미지">
+
+      <div>
+        <h2>왜 세포과학 영양 컨설팅인가</h2>
+        <p>
+          건강은 단순한 증상이 아니라 <b>세포 수준의 균형</b>에서 시작됩니다.<br/>
+          영양소의 흡수, 대사, 순환은 개인마다 다르며<br/>
+          과학적 접근 없이는 지속적인 개선이 어렵습니다.
+        </p>
+
+        <p>
+          연구소는 과도한 치료나 일시적인 유행이 아닌,<br/>
+          **기초 과학에 근거한 영양 설계**를 중심에 둡니다.
+        </p>
+      </div>
     </div>
-  </section>
+  </div>
 
-  <section class="info">
-    <div class="card">
-      <strong>신뢰 중심</strong>
-      <p>과장 없는 정보와 장기적인 건강 관리를 목표로 합니다.</p>
+  <!-- CONSULTING -->
+  <div class="container section">
+    <h2>상담 안내</h2>
+
+    <div class="info-box">
+      <p>📍 방문 상담을 우선으로 진행합니다</p>
+      <p>📞 전화 상담 : 064-712-0514</p>
+      <p>💬 카카오톡 오픈채팅 상담 가능</p>
+      <p>🧭 개인 상태에 따라 맞춤 방향 제시</p>
     </div>
+  </div>
 
-    <div class="card">
-      <strong>맞춤 컨설팅</strong>
-      <p>개인의 상태에 맞춘 현실적인 건강 상담을 제공합니다.</p>
-    </div>
-
-    <div class="card">
-      <strong>방문 상담 우선</strong>
-      <p>직접 만나는 상담을 가장 중요하게 생각합니다.</p>
-    </div>
-  </section>
-
-</div>
-
-<footer>
-  © 한국영양과학연구소 · GitHub Pages
-</footer>
+  <!-- FOOTER -->
+  <footer>
+    한국영양과학연구소 © 2025<br/>
+    본 사이트는 정보 제공 및 건강 상담 목적이며 의료 행위를 제공하지 않습니다.
+  </footer>
 
 </body>
 </html>
-
