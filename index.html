@@ -1,67 +1,751 @@
-<section id="about" class="sec">
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>한국영양과학연구소 | 세포과학 기반 맞춤 영양 컨설팅</title>
+  <meta name="description" content="세포과학 기반 맞춤 영양·생활습관 컨설팅. 전화/카카오톡 오픈채팅 상담 가능. (의료기관 아님)" />
+  <style>
+    :root{
+      --bg:#ffffff;
+      --surface:#f6f8fb;
+      --card:#ffffff;
+      --text:#101828;
+      --muted:#475467;
+      --line:#e4e7ec;
+      --brand:#2563eb;
+      --brand2:#0ea5e9;
+      --ok:#16a34a;
+      --shadow: 0 10px 25px rgba(16,24,40,.08);
+      --radius: 18px;
+      --radius2: 26px;
+      --max: 1120px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 20% 0%, rgba(37,99,235,.10), transparent 55%),
+        radial-gradient(900px 500px at 90% 10%, rgba(14,165,233,.10), transparent 50%),
+        var(--bg);
+      line-height: 1.6;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding: 0 20px;}
+    header{
+      position: sticky;
+      top:0;
+      z-index: 30;
+      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,.75);
+      border-bottom:1px solid rgba(228,231,236,.75);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 14px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; text-decoration:none;
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+    .logo{
+      width:38px; height:38px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(37,99,235,1), rgba(14,165,233,1));
+      display:grid; place-items:center;
+      box-shadow: 0 8px 20px rgba(37,99,235,.25);
+      color:white;
+      font-weight: 900;
+    }
+    .brand small{display:block; font-weight:600; color:var(--muted); letter-spacing:0}
+    .menu{
+      display:flex; align-items:center; gap: 16px; flex-wrap:wrap;
+      font-size: 14px; color: var(--muted);
+    }
+    .menu a{ text-decoration:none; padding:8px 10px; border-radius:12px; }
+    .menu a:hover{ background: rgba(37,99,235,.08); color: var(--text); }
+    .ctaRow{display:flex; gap:10px; align-items:center; flex-wrap:wrap;}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      border:1px solid var(--line);
+      background: var(--card);
+      color: var(--text);
+      padding: 10px 14px;
+      border-radius: 14px;
+      text-decoration:none;
+      font-weight: 700;
+      box-shadow: 0 6px 18px rgba(16,24,40,.06);
+      transition: transform .08s ease, box-shadow .12s ease, background .12s ease;
+      white-space: nowrap;
+    }
+    .btn:hover{ transform: translateY(-1px); box-shadow: 0 10px 25px rgba(16,24,40,.10); }
+    .btn.primary{
+      border: 1px solid rgba(37,99,235,.25);
+      background: linear-gradient(135deg, rgba(37,99,235,1), rgba(14,165,233,1));
+      color:white;
+      box-shadow: 0 10px 30px rgba(37,99,235,.22);
+    }
+    .btn.primary:hover{ box-shadow: 0 14px 34px rgba(37,99,235,.28); }
+    .btn.ghost{
+      background: transparent;
+      box-shadow:none;
+    }
+
+    /* Hero */
+    .hero{
+      padding: 34px 0 12px;
+    }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+    .heroCard{
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(228,231,236,.8);
+      border-radius: var(--radius2);
+      padding: 26px;
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(37,99,235,.18);
+      background: rgba(37,99,235,.08);
+      color: rgba(37,99,235,1);
+      font-weight:800;
+      font-size: 13px;
+    }
+    h1{
+      margin: 12px 0 10px;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.15;
+      letter-spacing: -.03em;
+    }
+    .lead{color:var(--muted); font-size: 16px; margin: 0 0 16px;}
+    .pillRow{
+      display:flex; gap:10px; flex-wrap:wrap; margin: 12px 0 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 8px 10px;
+      border:1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.7);
+    }
+    .heroActions{ display:flex; gap:12px; flex-wrap:wrap; margin-top: 10px; }
+    .note{
+      margin-top: 10px;
+      font-size: 12px;
+      color: #667085;
+    }
+    .sideCard{
+      padding: 0;
+      display:flex;
+      flex-direction: column;
+      overflow:hidden;
+    }
+    .sideMedia{
+      position: relative;
+      border-bottom:1px solid rgba(228,231,236,.8);
+      background: linear-gradient(180deg, rgba(37,99,235,.08), rgba(14,165,233,.03));
+      min-height: 250px;
+      display:grid;
+      place-items:center;
+    }
+    .sideMedia img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display:block;
+      max-height: 320px;
+    }
+    .sideBody{
+      padding: 18px 18px 20px;
+      display:grid;
+      gap:12px;
+    }
+    .quick{
+      display:grid;
+      gap:10px;
+    }
+    .quickItem{
+      display:flex; align-items:flex-start; gap:10px;
+      padding: 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(228,231,236,.85);
+      background: rgba(255,255,255,.85);
+    }
+    .icon{
+      width:34px; height:34px; border-radius: 12px;
+      display:grid; place-items:center;
+      background: rgba(37,99,235,.10);
+      color: rgba(37,99,235,1);
+      flex: 0 0 auto;
+      font-weight: 900;
+    }
+    .quickItem b{display:block; font-size: 14px; margin-bottom:2px;}
+    .quickItem span{display:block; font-size: 13px; color: var(--muted);}
+
+    /* Sections */
+    section{ padding: 26px 0; }
+    .secTitle{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:12px;
+      margin: 0 0 14px;
+    }
+    .secTitle h2{
+      margin:0;
+      font-size: 22px;
+      letter-spacing: -.02em;
+    }
+    .secTitle p{margin:0; color: var(--muted); font-size: 14px;}
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .card{
+      background: rgba(255,255,255,.85);
+      border:1px solid rgba(228,231,236,.85);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: 0 10px 22px rgba(16,24,40,.06);
+    }
+    .card h3{ margin: 0 0 8px; font-size: 16px; letter-spacing: -.01em;}
+    .card p{ margin: 0; color: var(--muted); font-size: 14px; }
+    .tag{
+      display:inline-flex;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.75);
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+    .mediaCard{
+      padding:0;
+      overflow:hidden;
+    }
+    .mediaCard img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+      min-height: 280px;
+    }
+
+    .steps{
+      display:grid;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .step{
+      display:flex; gap: 12px;
+      padding: 14px;
+      border-radius: 16px;
+      border:1px solid rgba(228,231,236,.85);
+      background: rgba(255,255,255,.85);
+    }
+    .num{
+      width:34px; height:34px;
+      border-radius: 12px;
+      display:grid; place-items:center;
+      background: rgba(14,165,233,.12);
+      color: rgba(14,165,233,1);
+      font-weight: 900;
+      flex:0 0 auto;
+    }
+    .step b{display:block; margin-bottom:3px;}
+    .step span{display:block; color: var(--muted); font-size: 14px;}
+
+    .faq{
+      display:grid;
+      gap: 10px;
+    }
+    details{
+      background: rgba(255,255,255,.85);
+      border:1px solid rgba(228,231,236,.85);
+      border-radius: 16px;
+      padding: 12px 14px;
+      box-shadow: 0 10px 22px rgba(16,24,40,.05);
+    }
+    summary{
+      cursor:pointer;
+      font-weight: 800;
+      letter-spacing: -.01em;
+    }
+    details p{ margin: 10px 0 0; color: var(--muted); font-size: 14px;}
+
+    footer{
+      padding: 28px 0 50px;
+      border-top: 1px solid rgba(228,231,236,.8);
+      background: rgba(255,255,255,.7);
+    }
+    .footGrid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 14px;
+      align-items: start;
+    }
+    .fine{
+      margin-top: 10px;
+      font-size: 12px;
+      color: #667085;
+      line-height: 1.6;
+    }
+    .kbd{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 12px;
+      padding: 2px 6px;
+      border:1px solid var(--line);
+      border-bottom-width: 2px;
+      border-radius: 8px;
+      background: rgba(255,255,255,.9);
+      color: var(--muted);
+    }
+
+    /* Mobile */
+    @media (max-width: 960px){
+      .heroGrid{ grid-template-columns: 1fr; }
+      .split{ grid-template-columns: 1fr; }
+      .grid3{ grid-template-columns: 1fr; }
+      .menu{ display:none; }
+      .footGrid{ grid-template-columns: 1fr; }
+      .sideMedia img{ max-height: 260px; }
+    }
+  </style>
+</head>
+
+<body>
+<header>
   <div class="wrap">
-    <h2>연구소 및 연구소장 소개</h2>
-
-    <!-- 연구소 정체성 -->
-    <div class="tile" style="margin-bottom:16px;">
-      <p style="margin:0; color:var(--muted); line-height:1.8;">
-        한국영양과학연구소는 의료기관이 아닌 <b style="color:var(--text);">전문 건강 컨설팅 기관</b>으로,<br/>
-        세포과학을 기반으로 한 영양 접근과 생활습관·영양섭취를 통합적으로 설계합니다.<br/>
-        영유아부터 노약자, 임산부 및 수유부까지 고려할 수 있을 만큼<br/>
-        <b style="color:var(--text);">안전성과 과학적 근거</b>를 최우선 기준으로 컨설팅을 진행합니다.
-      </p>
-    </div>
-
-    <!-- 자격 + 컨설팅 원칙 -->
-    <div class="grid2">
-      <div class="tile">
-        <div style="display:flex; gap:14px; align-items:flex-start;">
-          <div style="width:48px; height:48px; border-radius:16px; background:#eef2ff; border:1px solid #dbeafe; display:flex; align-items:center; justify-content:center; font-size:22px;">
-            🧑‍⚕️
-          </div>
-          <div>
-            <h3 style="margin:0 0 6px;">연구소장 전문 자격</h3>
-            <p style="margin:0; color:var(--muted); line-height:1.8;">
-              <b style="color:var(--text);">국제건강관리사협회 공식 건강관리사</b><br/>
-              <b style="color:var(--text);">대한영양제처방학회 공식 식품분석전문가</b>
-            </p>
-          </div>
+    <div class="nav">
+      <a class="brand" href="#top" aria-label="한국영양과학연구소 홈으로">
+        <div class="logo">K</div>
+        <div>
+          한국영양과학연구소
+          <small>세포과학 기반 맞춤 영양 컨설팅</small>
         </div>
+      </a>
+
+      <nav class="menu" aria-label="주요 메뉴">
+        <a href="#services">서비스</a>
+        <a href="#programs">프로그램</a>
+        <a href="#director">연구소 소개</a>
+        <a href="#process">상담 절차</a>
+        <a href="#faq">자주 묻는 질문</a>
+        <a href="#contact">문의</a>
+      </nav>
+
+      <div class="ctaRow">
+        <a class="btn ghost" href="tel:064-712-0514" aria-label="전화하기">📞 064-712-0514</a>
+        <a class="btn primary" href="https://open.kakao.com/o/sAcobg7h" target="_blank" rel="noopener">💬 카카오톡 오픈채팅</a>
       </div>
-
-      <div class="tile">
-        <div style="display:flex; gap:14px; align-items:flex-start;">
-          <div style="width:48px; height:48px; border-radius:16px; background:#ecfdf5; border:1px solid #bbf7d0; display:flex; align-items:center; justify-content:center; font-size:22px;">
-            🔬
-          </div>
-          <div>
-            <h3 style="margin:0 0 6px;">컨설팅 원칙</h3>
-            <p style="margin:0; color:var(--muted); line-height:1.8;">
-              세포과학을 기반으로 한 접근을 통해<br/>
-              <b style="color:var(--text);">안전성 · 개인 맞춤 · 지속 가능성</b>을 핵심 기준으로 삼습니다.<br/>
-              영양제 추천에 그치지 않고, 생활습관과 영양섭취 전반을 함께 설계합니다.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 글로벌 파트너십 -->
-    <div class="tile" style="margin-top:16px;">
-      <h3 style="margin-top:0;">글로벌 영양 과학 파트너십</h3>
-      <p style="margin:0; color:var(--muted); line-height:1.8;">
-        한국영양과학연구소는 글로벌 수준의 영양 과학 기준을 갖춘 파트너와 협력하여,<br/>
-        <b style="color:var(--text);">안전성</b>과 <b style="color:var(--text);">과학적 근거</b>를 최우선으로 검토한 제품군을 바탕으로 컨설팅을 진행합니다.
-        <br/><br/>
-        특정 브랜드를 전면에 내세우기보다,<br/>
-        개인의 연령·상태·목표에 맞춰 <b style="color:var(--text);">필요한 영양 카테고리와 우선순위</b>를 설계하는 방식으로 안내합니다.
-      </p>
-    </div>
-
-    <!-- 법적 안내 -->
-    <div class="small" style="margin-top:12px;">
-      * 본 연구소는 의료기관이 아니며, 본 사이트의 모든 내용은 건강 및 영양 컨설팅을 위한 정보 제공 목적입니다.
-      진단·치료가 필요한 경우 의료기관의 진료를 권장합니다.
     </div>
   </div>
-</section>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <div class="wrap hero">
+    <div class="heroGrid">
+      <div class="heroCard">
+        <div class="badge">신뢰 중심 · 과학 기반 · 맞춤 설계</div>
+        <h1>
+          세포과학을 기반으로 한<br />
+          맞춤 영양 컨설팅
+        </h1>
+        <p class="lead">
+          한국영양과학연구소는 개인의 생활습관·영양섭취·컨디션을 종합적으로 점검하고,
+          <b>안전성과 과학적 근거</b>를 최우선으로 컨설팅을 설계합니다.
+        </p>
+
+        <div class="pillRow" aria-label="핵심 키워드">
+          <span class="pill">✅ 방문 상담 우선</span>
+          <span class="pill">✅ 전화/카톡 상담 가능</span>
+          <span class="pill">✅ 영유아·노약자·임산부/수유부 고려</span>
+        </div>
+
+        <div class="heroActions">
+          <a class="btn primary" href="tel:064-712-0514">📞 전화 상담하기</a>
+          <a class="btn" href="https://open.kakao.com/o/sAcobg7h" target="_blank" rel="noopener">💬 카카오톡 상담하기</a>
+          <a class="btn" href="#process">📌 상담 절차 보기</a>
+        </div>
+
+        <div class="note">
+          * 본 연구소는 의료기관이 아니며, 본 사이트는 건강/영양 컨설팅을 위한 정보 제공 목적입니다.
+          진단·치료가 필요할 경우 의료기관의 진료를 권장합니다.
+        </div>
+      </div>
+
+      <div class="heroCard sideCard" aria-label="빠른 안내">
+        <div class="sideMedia">
+          <!-- ✅ 메인 이미지(7599로 시작하는 파일) -->
+          <img src="7599e4c4-9155-4afb-b094-490e31e808a6.png" alt="한국영양과학연구소 메인 이미지" />
+        </div>
+        <div class="sideBody">
+          <div class="quick">
+            <div class="quickItem">
+              <div class="icon">☎</div>
+              <div>
+                <b>전화 상담</b>
+                <span>064-712-0514</span>
+              </div>
+            </div>
+            <div class="quickItem">
+              <div class="icon">💬</div>
+              <div>
+                <b>카카오톡 오픈채팅</b>
+                <span>링크로 바로 상담 가능</span>
+              </div>
+            </div>
+            <div class="quickItem">
+              <div class="icon">🏷</div>
+              <div>
+                <b>컨설팅 방향</b>
+                <span>안전성 · 개인 맞춤 · 지속 가능성</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <div class="secTitle">
+        <div>
+          <h2>무엇을 도와드리나요</h2>
+          <p>영양제 추천뿐 아니라, 생활습관과 영양섭취까지 함께 설계합니다.</p>
+        </div>
+      </div>
+
+      <div class="grid3">
+        <div class="card">
+          <h3>맞춤 영양 컨설팅</h3>
+          <p>연령, 생활패턴, 현재 컨디션을 바탕으로 필요한 영양 카테고리와 우선순위를 설계합니다.</p>
+          <div class="tag">개인 맞춤</div>
+        </div>
+        <div class="card">
+          <h3>생활습관 컨설팅</h3>
+          <p>수면·활동·식사 루틴을 점검하고, 실행 가능한 작은 변화부터 함께 계획합니다.</p>
+          <div class="tag">지속 가능</div>
+        </div>
+        <div class="card">
+          <h3>안전성 중심 설계</h3>
+          <p>영유아·노약자·임산부 및 수유부까지 고려해, 안전성과 과학적 근거를 최우선으로 합니다.</p>
+          <div class="tag">안전성 최우선</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMS (1번 & 3번 중심) -->
+  <section id="programs">
+    <div class="wrap">
+      <div class="secTitle">
+        <div>
+          <h2>핵심 프로그램</h2>
+          <p>요청하신 1번·3번(다이어트, 세포재생)을 중심으로 먼저 구성했습니다.</p>
+        </div>
+      </div>
+
+      <div class="grid3">
+        <div class="card">
+          <h3>1. 다이어트 컨디션 설계</h3>
+          <p>
+            체중 감량만이 아니라 <b>에너지·포만·회복</b>을 함께 고려해
+            무리 없는 루틴과 영양 전략을 제안합니다.
+          </p>
+          <div class="tag">지속 가능한 감량</div>
+        </div>
+
+        <div class="card">
+          <h3>3. 세포 컨디션 & 재생 기반 설계</h3>
+          <p>
+            세포 수준의 균형을 목표로
+            항산화·회복·순환·기초 영양을 종합적으로 설계합니다.
+          </p>
+          <div class="tag">세포과학 기반</div>
+        </div>
+
+        <div class="card">
+          <h3>2. 항노화(추후 고도화)</h3>
+          <p>
+            항노화 프로그램은 다음 단계에서 더 정교하게 다듬어
+            별도 페이지/섹션으로 확장할 수 있습니다.
+          </p>
+          <div class="tag">다음 단계</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT / DIRECTOR -->
+  <section id="director">
+    <div class="wrap">
+      <div class="secTitle">
+        <div>
+          <h2>연구소 및 연구소장 소개</h2>
+          <p>신뢰 중심의 전문 자격과 컨설팅 원칙을 공개합니다.</p>
+        </div>
+      </div>
+
+      <div class="split">
+        <div class="card">
+          <h3>전문 자격</h3>
+          <div class="steps" style="margin-top:12px">
+            <div class="step">
+              <div class="num">✓</div>
+              <div>
+                <b>국제건강관리사협회 공식 건강관리사</b>
+                <span>정식 자격 기반으로 건강 컨설팅을 진행합니다.</span>
+              </div>
+            </div>
+            <div class="step">
+              <div class="num">✓</div>
+              <div>
+                <b>대한영양제처방학회 공식 식품분석전문가</b>
+                <span>성분과 안전성을 우선으로 검토합니다.</span>
+              </div>
+            </div>
+            <div class="step">
+              <div class="num">✓</div>
+              <div>
+                <b>한국영양과학연구소 소장</b>
+                <span>개인의 목표와 현실을 반영한 맞춤 설계를 제공합니다.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tag" style="margin-top:14px">특정 브랜드를 전면에 내세우기보다, 개인 맞춤 설계를 우선합니다.</div>
+        </div>
+
+        <div class="card mediaCard" aria-label="영양제 이미지 영역">
+          <!-- ✅ 영양제(health로 시작) 이미지 -->
+          <img src="healthcare-8940018_1920.jpg" alt="영양 컨설팅 이미지" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="wrap">
+      <div class="secTitle">
+        <div>
+          <h2>상담 절차</h2>
+          <p>처음 오시는 분도 어렵지 않게, 단계별로 진행합니다.</p>
+        </div>
+      </div>
+
+      <div class="split">
+        <div class="card">
+          <h3>진행 흐름</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="num">1</div>
+              <div>
+                <b>예약/문의</b>
+                <span>방문 상담을 우선으로 하며, 전화/카톡으로도 상담 가능합니다.</span>
+              </div>
+            </div>
+            <div class="step">
+              <div class="num">2</div>
+              <div>
+                <b>현재 상태 파악</b>
+                <span>생활습관·식사·컨디션을 종합적으로 확인합니다.</span>
+              </div>
+            </div>
+            <div class="step">
+              <div class="num">3</div>
+              <div>
+                <b>맞춤 설계</b>
+                <span>목표(다이어트/세포 컨디션 등)에 맞춰 우선순위를 설계합니다.</span>
+              </div>
+            </div>
+            <div class="step">
+              <div class="num">4</div>
+              <div>
+                <b>실행 & 조정</b>
+                <span>실행 가능한 수준으로 조정하고, 필요 시 방향을 업데이트합니다.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>상담 채널</h3>
+          <div class="steps" style="margin-top:12px">
+            <div class="step">
+              <div class="num">🏠</div>
+              <div>
+                <b>방문 상담 (권장)</b>
+                <span>가장 정확한 상태 파악과 실행 설계를 위해 방문 상담을 우선합니다.</span>
+              </div>
+            </div>
+            <div class="step">
+              <div class="num">☎</div>
+              <div>
+                <b>전화 상담</b>
+                <span><a href="tel:064-712-0514"><b>064-712-0514</b></a> (터치하면 바로 연결)</span>
+              </div>
+            </div>
+            <div class="step">
+              <div class="num">💬</div>
+              <div>
+                <b>카카오톡 오픈채팅</b>
+                <span><a href="https://open.kakao.com/o/sAcobg7h" target="_blank" rel="noopener"><b>링크로 바로 상담하기</b></a></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="note">
+            * 제품/브랜드를 전면 홍보하기보다, 개인의 목표·상태에 맞춰 필요한 카테고리와 우선순위를 설계합니다.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="secTitle">
+        <div>
+          <h2>자주 묻는 질문</h2>
+          <p>처음 상담 전 가장 많이 물어보시는 내용입니다.</p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <details>
+          <summary>의료기관인가요?</summary>
+          <p>
+            아닙니다. 한국영양과학연구소는 의료기관이 아닌 건강/영양 컨설팅 기관입니다.
+            본 사이트의 모든 내용은 정보 제공 목적이며, 진단·치료가 필요한 경우 의료기관 진료를 권장합니다.
+          </p>
+        </details>
+
+        <details>
+          <summary>임산부/수유부, 영유아도 상담 가능한가요?</summary>
+          <p>
+            가능합니다. 다만 상황에 따라 더 보수적인 접근이 필요할 수 있으므로
+            안전성과 과학적 근거를 최우선으로 고려하여 설계합니다.
+          </p>
+        </details>
+
+        <details>
+          <summary>영양제만 추천받을 수 있나요?</summary>
+          <p>
+            영양제 추천도 가능하지만, 생활습관과 식사 루틴까지 함께 설계하는 것을 권장합니다.
+            목표(다이어트/세포 컨디션 등)에 맞춰 실행 가능한 형태로 제안합니다.
+          </p>
+        </details>
+
+        <details>
+          <summary>상담은 어떻게 시작하면 되나요?</summary>
+          <p>
+            가장 빠른 방법은
+            <a href="tel:064-712-0514"><b>전화(064-712-0514)</b></a> 또는
+            <a href="https://open.kakao.com/o/sAcobg7h" target="_blank" rel="noopener"><b>카카오톡 오픈채팅</b></a>입니다.
+            방문 상담을 우선으로 진행합니다.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="secTitle">
+        <div>
+          <h2>문의하기</h2>
+          <p>원하시는 채널로 편하게 연락 주세요.</p>
+        </div>
+      </div>
+
+      <div class="split">
+        <div class="card">
+          <h3>연락처</h3>
+          <p style="margin-top:8px; color:var(--muted)">
+            전화 상담: <a href="tel:064-712-0514"><b>064-712-0514</b></a><br/>
+            카카오톡 오픈채팅: <a href="https://open.kakao.com/o/sAcobg7h" target="_blank" rel="noopener"><b>open.kakao.com/o/sAcobg7h</b></a>
+          </p>
+          <div class="heroActions" style="margin-top:14px">
+            <a class="btn primary" href="tel:064-712-0514">📞 전화하기</a>
+            <a class="btn" href="https://open.kakao.com/o/sAcobg7h" target="_blank" rel="noopener">💬 카카오톡 열기</a>
+          </div>
+
+          <div class="fine">
+            * 버튼이 안 눌릴 때는 브라우저 주소창에 직접 입력해도 됩니다.<br/>
+            예) <span class="kbd">https://open.kakao.com/o/sAcobg7h</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>안내 문구(신뢰 중심)</h3>
+          <p style="margin-top:8px; color:var(--muted)">
+            한국영양과학연구소는 특정 제품/브랜드를 전면에 내세우기보다,<br/>
+            개인의 연령·상태·목표에 맞춘 <b>필요한 영양 카테고리와 우선순위</b>를 설계합니다.
+          </p>
+          <div class="fine">
+            * 본 연구소는 의료기관이 아니며, 본 사이트의 모든 내용은 건강 및 영양 컨설팅을 위한 정보 제공 목적입니다.
+            진단·치료가 필요한 경우 의료기관의 진료를 권장합니다.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footGrid">
+      <div>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div class="logo" style="width:34px; height:34px; border-radius:12px;">K</div>
+          <div style="font-weight:900; letter-spacing:-.02em;">한국영양과학연구소</div>
+        </div>
+        <div class="fine">
+          세포과학 기반 맞춤 영양 컨설팅 · 생활습관/영양섭취 컨설팅<br/>
+          전화: <a href="tel:064-712-0514"><b>064-712-0514</b></a> ·
+          카카오톡: <a href="https://open.kakao.com/o/sAcobg7h" target="_blank" rel="noopener"><b>오픈채팅</b></a>
+        </div>
+      </div>
+
+      <div class="fine">
+        ⓒ <span id="y"></span> Korea Nutrition Science Institute. All rights reserved.<br/>
+        본 사이트는 GitHub Pages로 운영됩니다.
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
