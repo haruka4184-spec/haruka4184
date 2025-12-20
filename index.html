@@ -3,266 +3,641 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google-site-verification" content="vi61HD-7AEjZQsybBTAABAHFJ4DtImmoXVd3XuOQ8Nw" />
 
-  <title>한국영양과학연구소 KINS</title>
+  <meta name="google-site-verification" content="vi61HD-7AEjZQsybBTAABAHFJ4DtImmoXVd3Xu0Q8Nw" />
+
+  <title>한국영양과학연구소 KINS | 제주시 세포과학 기반 맞춤 영양 컨설팅</title>
+  <meta name="description" content="제주시 한국영양과학연구소(KINS). 세포과학 기반 맞춤 영양·생활습관 컨설팅 연구소. 안전성과 근거 중심 설계." />
+  <meta name="keywords" content="제주시 영양컨설팅, 제주시 건강컨설팅, 한국영양과학연구소, KINS, 세포과학, 맞춤 영양 컨설팅, 생활습관 컨설팅" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="한국영양과학연구소 KINS | 제주시 맞춤 영양 컨설팅" />
+  <meta property="og:description" content="세포과학 기반 맞춤 영양·생활습관 컨설팅 연구소. 안전성과 근거 중심 설계." />
+  <meta property="og:image" content="https://kins.jeju.kr/7599e4c4-9155-4afb-b094-490e31e808a6.png" />
+  <meta property="og:url" content="https://kins.jeju.kr/" />
+  <link rel="canonical" href="https://kins.jeju.kr/" />
 
   <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
-      background: #f4f6f8;
-      color: #1f2937;
+    :root{
+      --bg:#f6f7fb;
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#475569;
+      --line:#e6edf7;
+
+      --brand:#1246c8;
+      --brand2:#0a2f8f;
+      --kakao:#FEE500;
+
+      --shadow: 0 18px 44px rgba(15, 23, 42, .10);
+      --shadow2: 0 10px 22px rgba(15, 23, 42, .08);
+
+      --r12:12px;
+      --r16:16px;
+      --r20:20px;
+      --r24:24px;
+
+      --btnH:44px;     /* ✅ 버튼 높이 통일 */
+      --btnF:15px;     /* ✅ 글자크기 통일 */
     }
 
-    a { text-decoration: none; color: inherit; }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Apple SD Gothic Neo", "Noto Sans KR", Arial, sans-serif;
+      color:var(--text);
+      background: var(--bg);
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:1140px; margin:0 auto; padding:0 18px}
 
-    /* ---------- HEADER ---------- */
-    header {
-      background: #ffffff;
-      border-bottom: 1px solid #e5e7eb;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+    /* ====== TOPBAR ====== */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid rgba(230,237,247,.95);
     }
 
-    .header-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 16px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    .top-row1{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px;
+      padding:12px 0;
     }
 
-    .logo {
-      font-size: 20px;
-      font-weight: 800;
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      min-width:240px;
+    }
+    .logo{
+      width:58px; height:40px;
+      border-radius:14px;
+      background: var(--brand);
+      color:#fff;
+      font-weight:1000;
+      display:flex; align-items:center; justify-content:center;
+      letter-spacing:.6px;
+      box-shadow: 0 10px 20px rgba(18,70,200,.14);
+    }
+    .brand-text{display:flex; flex-direction:column; line-height:1.1}
+    .brand-text b{font-size:18px; letter-spacing:-.2px}
+    .brand-text span{font-size:12px; color:var(--muted); margin-top:6px; white-space:nowrap}
+
+    /* ✅ 상단 연락처(딱 여기만 + 하단만) */
+    .actions{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:flex-end;
+      flex-wrap:wrap;
     }
 
-    .contact-top {
-      display: flex;
-      gap: 10px;
+    /* ✅ 전화/카카오 버튼: 높이/글자/패딩/정렬 100% 동일 */
+    .pill, .btn{
+      height:var(--btnH);
+      padding:0 16px;
+      font-size:var(--btnF);
+      font-weight:900;
+      border-radius:999px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      line-height:1;
+      white-space:nowrap;
+      box-shadow: var(--shadow2);
+
+      /* ✅ 핵심: 시각적으로 폭/정렬 차이 나는 거 방지 */
+      min-width: 168px;         /* ← 둘 폭을 맞춰서 "크기" 체감 동일 */
+      text-align:center;
     }
 
-    .btn {
-      height: 44px;
-      padding: 0 18px;
-      border-radius: 999px;
-      font-size: 15px;
-      font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid #d1d5db;
-      background: #fff;
+    .pill{
+      background:#fff;
+      border:1px solid var(--line);
+      color:var(--text);
     }
 
-    .btn-kakao {
-      background: #FEE500;
-      color: #000;
-      border: 1px solid rgba(0,0,0,.1);
+    /* ✅ 카카오: 노란색 + 검정 글씨 */
+    .btn-kakao{
+      background: var(--kakao);
+      color:#000;
+      border:1px solid rgba(0,0,0,.08);
+    }
+    .btn-kakao:hover{filter:brightness(.98)}
+
+    /* ====== 메뉴 ====== */
+    .top-row2{
+      border-top:1px solid rgba(230,237,247,.95);
+      padding:10px 0;
+    }
+    .topnav{
+      display:flex;
+      justify-content:center;
+      gap:8px;
+      flex-wrap:nowrap;
+      overflow:auto;
+      scrollbar-width:none;
+    }
+    .topnav::-webkit-scrollbar{display:none}
+
+    .navitem{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:#fff;
+      font-weight:900;
+      font-size:13px;
+      color:var(--muted);
+      white-space:nowrap;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease, color .12s ease;
+    }
+    .navitem .icon{
+      width:18px; height:18px;
+      border-radius:6px;
+      display:inline-flex; align-items:center; justify-content:center;
+      font-size:12px;
+      background: rgba(18,70,200,.08);
+      color: var(--brand2);
+      border:1px solid rgba(18,70,200,.12);
+      line-height:1;
+    }
+    .navitem:hover{
+      color:var(--text);
+      border-color:rgba(18,70,200,.18);
+      background:rgba(18,70,200,.04);
+      transform: translateY(-1px);
     }
 
-    /* ---------- NAV ---------- */
-    .nav-bar {
-      border-top: 1px solid #e5e7eb;
-      background: #fff;
+    /* ====== SECTIONS ====== */
+    section{padding:42px 0}
+    .card{
+      background: rgba(255,255,255,.96);
+      border:1px solid rgba(230,237,247,.95);
+      border-radius: var(--r24);
+      box-shadow: var(--shadow);
+    }
+    .grid{display:grid; gap:18px}
+
+    .sec-title{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:12px; margin-bottom:14px;
+    }
+    .sec-title h2{margin:0; font-size:26px; letter-spacing:-.6px}
+    .sec-title p{margin:0; color:var(--muted); font-size:13px}
+
+    /* ====== HERO ====== */
+    .hero{padding:26px 0 34px}
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .95fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .hero-left{padding:28px}
+    .tag{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(18,70,200,.16);
+      background: rgba(18,70,200,.06);
+      color: var(--brand2);
+      font-weight:900;
+      font-size:12px;
+    }
+    h1{
+      margin:14px 0 10px;
+      font-size:40px;
+      letter-spacing:-1px;
+      line-height:1.15;
+    }
+    .sub{
+      margin:0;
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.75;
+      max-width:56ch;
     }
 
-    .nav {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 10px 20px;
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
+    .hero-right{overflow:hidden}
+    .hero-photo{
+      overflow:hidden;
+      border-radius: var(--r24);
+      border:1px solid rgba(230,237,247,.95);
+      box-shadow: var(--shadow);
+      background:#eef3ff;
+      aspect-ratio: 16 / 12;
+    }
+    .hero-photo img{width:100%; height:100%; object-fit:cover; display:block}
+
+    /* ====== FEATURES ====== */
+    .cards3{grid-template-columns: repeat(3, 1fr)}
+    .box{
+      padding:18px;
+      border-radius: var(--r24);
+      border:1px solid rgba(230,237,247,.95);
+      background:#fff;
+      box-shadow: var(--shadow2);
+    }
+    .box b{display:block; font-size:16px; margin-bottom:8px}
+    .box p{margin:0; color:var(--muted); line-height:1.7}
+
+    /* ====== PROCESS ====== */
+    .steps{padding:20px}
+    .steps-grid{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:12px;
+      margin-top:12px;
+    }
+    .step{
+      padding:14px;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background:#fff;
+    }
+    .step .n{
+      width:30px; height:30px;
+      border-radius:10px;
+      display:flex; align-items:center; justify-content:center;
+      font-weight:1000;
+      background: rgba(18,70,200,.08);
+      color: var(--brand2);
+      border:1px solid rgba(18,70,200,.12);
+      margin-bottom:10px;
+    }
+    .step b{display:block; margin-bottom:6px}
+    .step p{margin:0; color:var(--muted); line-height:1.65; font-size:13px}
+
+    /* ====== SECOND PHOTO SECTION ====== */
+    .two-col{
+      display:grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .photo2{
+      overflow:hidden;
+      border-radius: var(--r24);
+      border:1px solid rgba(230,237,247,.95);
+      box-shadow: var(--shadow);
+      background:#eef3ff;
+      min-height:320px;
+    }
+    .photo2 img{width:100%; height:100%; object-fit:cover; display:block}
+    .photo2-text{padding:24px}
+
+    /* ====== FAQ ====== */
+    .faq{display:grid; gap:12px}
+    .faq .q{
+      padding:18px;
+      border-radius: var(--r24);
+      border:1px solid rgba(230,237,247,.95);
+      background:#fff;
+      box-shadow: var(--shadow2);
+    }
+    .faq .q b{display:block}
+    .faq .q p{margin:8px 0 0; color:var(--muted); line-height:1.75}
+
+    /* ====== INQUIRY (하단 연락처 1회) ====== */
+    .inquiry{padding:22px}
+    .inquiry-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:12px;
+    }
+    .btn-call{
+      background: var(--brand);
+      color:#fff;
+      border:1px solid rgba(18,70,200,.14);
+    }
+    .btn-call:hover{filter:brightness(.98)}
+
+    .note{
+      margin-top:14px;
+      padding:12px 14px;
+      border-radius:16px;
+      border:1px solid rgba(18,70,200,.12);
+      background: rgba(18,70,200,.05);
+      color: var(--muted);
+      font-size:13px;
+      line-height:1.7;
     }
 
-    .nav a {
-      padding: 10px 16px;
-      border-radius: 999px;
-      border: 1px solid #e5e7eb;
-      background: #fff;
-      font-size: 14px;
-      font-weight: 600;
+    /* ====== FOOTER ====== */
+    footer{padding:22px 0 34px; color:var(--muted)}
+    .foot{
+      padding:18px;
+      border-radius: var(--r24);
+      border:1px solid var(--line);
+      background:#fff;
+      box-shadow: var(--shadow2);
+    }
+    .foot-top{
+      display:flex; align-items:flex-start; justify-content:space-between;
+      gap:16px; flex-wrap:wrap;
+    }
+    .foot-left{
+      display:flex; align-items:flex-start; gap:12px;
+      min-width:260px;
+    }
+    .foot-left .logo{width:52px; height:36px}
+    .foot-left b{display:block; color:var(--text); font-size:16px}
+    .foot-left span{display:block; margin-top:6px; color:var(--muted); line-height:1.7}
+    .foot-copy{
+      margin-top:14px;
+      border-top:1px solid var(--line);
+      padding-top:14px;
+      font-size:13px;
+      line-height:1.8;
     }
 
-    .nav a:hover {
-      background: #f1f5f9;
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr}
+      .cards3{grid-template-columns:1fr}
+      .steps-grid{grid-template-columns:1fr 1fr}
+      .two-col{grid-template-columns:1fr}
+      .photo2{min-height:240px}
+      h1{font-size:34px}
+      .brand-text span{white-space:normal}
     }
+    @media (max-width: 520px){
+      .steps-grid{grid-template-columns:1fr}
 
-    /* ---------- MAIN ---------- */
-    main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
-
-    section {
-      margin-bottom: 60px;
-    }
-
-    .card {
-      background: #fff;
-      border-radius: 18px;
-      padding: 32px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
-    }
-
-    /* HERO */
-    .hero {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 32px;
-      align-items: center;
-    }
-
-    .hero h1 {
-      font-size: 36px;
-      margin-bottom: 16px;
-    }
-
-    .hero img {
-      width: 100%;
-      border-radius: 18px;
-      object-fit: cover;
-    }
-
-    /* GRID */
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    /* IMAGE SECTION */
-    .image-section img {
-      width: 100%;
-      border-radius: 18px;
-    }
-
-    /* FOOTER */
-    footer {
-      background: #ffffff;
-      border-top: 1px solid #e5e7eb;
-      padding: 40px 20px;
-      font-size: 13px;
-      color: #4b5563;
-    }
-
-    .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .footer-contact {
-      margin-top: 16px;
-      display: flex;
-      gap: 10px;
-    }
-
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
-      .grid-3 {
-        grid-template-columns: 1fr;
-      }
+      /* ✅ 폰에서는 버튼들이 줄바꿈될 때도 폭 동일하게 */
+      .pill, .btn{width:100%; min-width:0;}
+      .actions{width:100%;}
     }
   </style>
 </head>
 
 <body>
+  <div class="topbar">
+    <div class="wrap">
+      <div class="top-row1">
+        <div class="brand">
+          <div class="logo">KINS</div>
+          <div class="brand-text">
+            <b>한국영양과학연구소</b>
+            <span>제주시 · 세포과학 기반 맞춤 영양 컨설팅</span>
+          </div>
+        </div>
 
-<header>
-  <div class="header-inner">
-    <div class="logo">한국영양과학연구소 KINS</div>
-    <div class="contact-top">
-      <div class="btn">064-712-0514</div>
-      <a class="btn btn-kakao" href="https://open.kakao.com/o/sAcobg7h" target="_blank">카카오톡 오픈채팅</a>
+        <div class="actions" aria-label="연락처">
+          <a class="pill" href="tel:064-712-0514">064-712-0514</a>
+          <a class="btn btn-kakao" href="https://open.kakao.com/o/sAcobg7h" target="_blank" rel="noopener">카카오톡 오픈채팅</a>
+        </div>
+      </div>
+
+      <div class="top-row2">
+        <div class="topnav" aria-label="주요 메뉴">
+          <a class="navitem" href="#services"><span class="icon">⤴</span>서비스</a>
+          <a class="navitem" href="#programs"><span class="icon">⤴</span>프로그램</a>
+          <a class="navitem" href="#process"><span class="icon">⤴</span>상담 절차</a>
+          <a class="navitem" href="#focus"><span class="icon">⤴</span>설계 기준</a>
+          <a class="navitem" href="#about"><span class="icon">⤴</span>연구소 소개</a>
+          <a class="navitem" href="#faq"><span class="icon">⤴</span>FAQ</a>
+          <a class="navitem" href="#inquiry"><span class="icon">⤴</span>문의</a>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div class="nav-bar">
-    <nav class="nav">
-      <a href="#services">서비스</a>
-      <a href="#programs">프로그램</a>
-      <a href="#process">상담절차</a>
-      <a href="#about">연구소소개</a>
-      <a href="#inquiry">문의</a>
-    </nav>
-  </div>
-</header>
-
-<main>
 
   <!-- HERO -->
-  <section class="card hero">
-    <div>
-      <h1>세포과학 기반 맞춤 영양 컨설팅</h1>
-      <p>
-        연구소 소개 문구 위치.<br>
-        이 영역의 문장은 자유롭게 수정해도 레이아웃이 깨지지 않습니다.
-      </p>
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="card hero-left">
+          <div class="tag">신뢰 중심 · 과학 기반 · 안전성 우선</div>
+          <h1>세포과학 기반<br/>맞춤 영양 컨설팅</h1>
+          <p class="sub">
+            목표(다이어트·항노화·세포 컨디션)와 생활루틴을 함께 점검하고,
+            실행 가능한 우선순위로 정리합니다.
+            과잉/중복을 줄이고, 안전성과 근거를 우선으로 설계합니다.
+          </p>
+        </div>
+
+        <div class="hero-photo" aria-label="메인 이미지">
+          <img src="7599e4c4-9155-4afb-b094-490e31e808a6.png" alt="한국영양과학연구소 KINS 메인 이미지" />
+        </div>
+      </div>
     </div>
-    <img src="7599e4c4-9155-4afb-b094-490e31e808a6.png" alt="메인 이미지">
   </section>
 
   <!-- SERVICES -->
   <section id="services">
-    <h2>서비스</h2>
-    <div class="grid-3">
-      <div class="card">서비스 설명 영역</div>
-      <div class="card">서비스 설명 영역</div>
-      <div class="card">서비스 설명 영역</div>
+    <div class="wrap">
+      <div class="sec-title">
+        <h2>서비스</h2>
+        <p>영양제 추천뿐 아니라 생활습관·영양섭취까지 함께 설계합니다.</p>
+      </div>
+
+      <div class="grid cards3">
+        <div class="box">
+          <b>맞춤 영양 컨설팅</b>
+          <p>현재 컨디션과 목표를 바탕으로, 필요한 카테고리와 우선순위를 설계합니다.</p>
+        </div>
+        <div class="box">
+          <b>생활습관 컨설팅</b>
+          <p>수면·활동·식사 루틴을 점검하고, 현실적으로 가능한 변화부터 적용합니다.</p>
+        </div>
+        <div class="box">
+          <b>안전성 중심 설계</b>
+          <p>영유아·노약자·임산부/수유부까지 고려하여 안전성과 근거를 우선합니다.</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- PROGRAMS -->
   <section id="programs">
-    <h2>프로그램</h2>
-    <div class="grid-3">
-      <div class="card">프로그램 1</div>
-      <div class="card">프로그램 2</div>
-      <div class="card">프로그램 3</div>
+    <div class="wrap">
+      <div class="sec-title">
+        <h2>핵심 프로그램</h2>
+        <p>목표별로 루틴을 정리하고, 유지 가능한 형태로 설계합니다.</p>
+      </div>
+
+      <div class="grid cards3">
+        <div class="box">
+          <b>1. 다이어트</b>
+          <p>체중만이 아니라 에너지·포만·회복까지 고려하여 무리 없이 설계합니다.</p>
+        </div>
+        <div class="box">
+          <b>2. 항노화</b>
+          <p>항산화·회복·수면·기초 영양의 밸런스를 점검해 루틴화합니다.</p>
+        </div>
+        <div class="box">
+          <b>3. 세포 컨디션</b>
+          <p>세포과학 기반으로 컨디션·회복·균형을 목표로 전략을 정리합니다.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- IMAGE 2 -->
-  <section class="image-section card">
-    <img src="healthcare-8940018_1920.jpg" alt="영양 설계 이미지">
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="wrap">
+      <div class="card steps">
+        <div class="sec-title">
+          <h2>컨설팅 절차</h2>
+          <p>헷갈리지 않게 처음부터 끝까지 한 흐름으로 안내합니다.</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step">
+            <div class="n">1</div>
+            <b>문의 · 목표 확인</b>
+            <p>전화 또는 카카오톡으로 목표와 현재 상태를 간단히 확인합니다.</p>
+          </div>
+          <div class="step">
+            <div class="n">2</div>
+            <b>루틴 · 섭취 점검</b>
+            <p>수면·식사·활동·영양섭취 루틴을 정리하고 핵심 포인트를 잡습니다.</p>
+          </div>
+          <div class="step">
+            <div class="n">3</div>
+            <b>우선순위 설계</b>
+            <p>안전성과 근거를 우선으로, 필요한 항목부터 단계적으로 구성합니다.</p>
+          </div>
+          <div class="step">
+            <div class="n">4</div>
+            <b>적용 · 조정</b>
+            <p>실행 가능한 형태로 적용하고, 변화에 따라 조정합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 사진2 + 기준 -->
+  <section id="focus">
+    <div class="wrap">
+      <div class="sec-title">
+        <h2>설계 기준</h2>
+        <p>제주시 기반 상담 · 안전성/근거/지속 가능성을 중심에 둡니다.</p>
+      </div>
+
+      <div class="two-col">
+        <div class="photo2" aria-label="영양 컨설팅 이미지">
+          <img src="healthcare-8940018_1920.jpg" alt="영양 컨설팅 이미지" />
+        </div>
+
+        <div class="card photo2-text">
+          <h3 style="margin:0 0 10px; font-size:18px; letter-spacing:-.2px;">핵심은 ‘지속 가능’ 입니다</h3>
+          <p style="margin:0; color:var(--muted); line-height:1.8;">
+            과잉/중복을 줄이고, 필요한 것부터 단계적으로 설계합니다.<br/>
+            연령·상태(영유아/노약자/임산부·수유부 등)를 고려해 안전성을 우선합니다.<br/>
+            영양제 추천에 그치지 않고 생활습관과 영양섭취 루틴을 함께 정리합니다.
+          </p>
+
+          <div class="note">
+            * 본 연구소는 의료기관이 아니며, 본 사이트의 내용은 진단·치료 목적이 아닌 건강관리 및 생활습관 개선을 위한 교육·컨설팅 정보입니다.
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- ABOUT -->
-  <section id="about" class="card">
-    <h2>연구소 소개</h2>
-    <p>
-      연구소 소개 문구 영역.<br>
-      법적·신뢰 문구를 자유롭게 수정 가능.
-    </p>
-  </section>
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-title">
+        <h2>연구소 소개</h2>
+        <p>문구는 언제든 바꿀 수 있게, 구성만 깔끔하게 잡아두었습니다.</p>
+      </div>
 
-  <!-- INQUIRY -->
-  <section id="inquiry" class="card">
-    <h2>문의</h2>
-    <p>문의 안내 문구</p>
-    <div class="footer-contact">
-      <div class="btn">064-712-0514</div>
-      <a class="btn btn-kakao" href="https://open.kakao.com/o/sAcobg7h" target="_blank">카카오톡 오픈채팅</a>
+      <div class="grid cards3">
+        <div class="box">
+          <b>전문 자격</b>
+          <p>국제건겅관리사협회 공식 건강관리사 / 대한영양제처방학회 공식 식품분석전문가</p>
+        </div>
+        <div class="box">
+          <b>컨설팅 방식</b>
+          <p>방문 상담 중심 + 전화/카카오 상담 가능 (상황에 따라 안내)</p>
+        </div>
+        <div class="box">
+          <b>파트너십</b>
+          <p>안전성과 과학적 기준을 바탕으로 신뢰할 수 있는 제품군 중심으로 설계</p>
+        </div>
+      </div>
     </div>
   </section>
 
-</main>
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-title">
+        <h2>FAQ</h2>
+        <p>초보 방문자도 이해하기 쉽게, 질문을 짧게 정리합니다.</p>
+      </div>
 
-<footer>
-  <div class="footer-inner">
-    © 한국영양과학연구소 KINS<br>
-    제주특별자치도 제주시 연문4길 1, 1층<br>
-    본 연구소는 의료기관이 아니며 건강·영양 컨설팅을 제공합니다.
-  </div>
-</footer>
+      <div class="faq">
+        <div class="q">
+          <b>Q. 꼭 방문해야 하나요?</b>
+          <p>방문 상담을 우선으로 안내하지만, 상황에 따라 전화/카카오 상담도 가능합니다.</p>
+        </div>
+        <div class="q">
+          <b>Q. 영유아·노약자·임산부/수유부도 가능한가요?</b>
+          <p>가능합니다. 안전성과 근거를 최우선으로 고려하여 단계적으로 설계합니다.</p>
+        </div>
+        <div class="q">
+          <b>Q. 영양제만 추천하나요?</b>
+          <p>아니요. 생활습관(수면/식사/활동)과 영양섭취 루틴까지 함께 설계합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- INQUIRY -->
+  <section id="inquiry">
+    <div class="wrap">
+      <div class="card inquiry">
+        <div class="sec-title">
+          <h2>문의</h2>
+          <p>연락은 딱 2가지: 전화 / 카카오톡 오픈채팅</p>
+        </div>
+
+        <div class="inquiry-actions">
+          <a class="btn btn-call" href="tel:064-712-0514">064-712-0514 전화하기</a>
+          <a class="btn btn-kakao" href="https://open.kakao.com/o/sAcobg7h" target="_blank" rel="noopener">카카오톡 오픈채팅</a>
+        </div>
+
+        <div class="note">
+          * 본 연구소는 의료기관이 아니며, 본 사이트의 모든 내용은 건강관리 및 생활습관 개선을 위한 교육·컨설팅 정보입니다.
+          진단·치료가 필요하거나 약물 처방을 원하시는 경우 의료기관의 진료를 권장합니다.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="foot">
+        <div class="foot-top">
+          <div class="foot-left">
+            <div class="logo">KINS</div>
+            <div>
+              <b>한국영양과학연구소</b>
+              <span>
+                제주시 · 세포과학 기반 맞춤 영양 컨설팅<br/>
+                전화: 064-712-0514 · 카카오톡: 오픈채팅
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="foot-copy">
+          © Korea Nutrition Science Institute (한국영양과학연구소). All rights reserved.<br/>
+          * 본 연구소는 의료기관이 아니며, 본 사이트의 모든 내용은 세포과학을 기반으로 한 건강개선이 목적입니다.
+          병원의 약물처방을 원하시는 경우 의료기관의 진료를 권장합니다.
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
