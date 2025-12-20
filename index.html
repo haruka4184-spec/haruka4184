@@ -3,37 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google-site-verification" content="vi61HD-7AEjZQsybBTABAHFJ4DtImoXVd3Xu008Nw" />
+  <meta name="google-site-verification" content="vi61HD-7AEjZQsybBTAABAHFJ4DtImmoXVd3XuOQ8Nw" />
 
-  <title>한국영양과학연구소 KINS | 제주시 영양·건강 컨설팅 연구소</title>
-
-  <meta name="description" content="한국영양과학연구소(KINS)는 제주시에서 2024년 정식 개업한 영양과학·세포과학 기반 건강컨설팅 연구소입니다." />
-  <meta name="keywords" content="제주시 영양컨설팅, 한국영양과학연구소, KINS, 건강컨설팅, 세포과학, 영양과학" />
+  <title>한국영양과학연구소 KINS</title>
 
   <style>
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
-      background: #f6f7f8;
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      background: #f4f6f8;
       color: #1f2937;
-      line-height: 1.6;
     }
 
     a { text-decoration: none; color: inherit; }
 
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 32px 20px;
-    }
-
+    /* ---------- HEADER ---------- */
     header {
       background: #ffffff;
       border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     .header-inner {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 16px 20px;
       display: flex;
@@ -42,21 +36,8 @@
     }
 
     .logo {
-      font-weight: 800;
       font-size: 20px;
-    }
-
-    .nav {
-      display: flex;
-      gap: 20px;
-      font-size: 14px;
-    }
-
-    .nav a::after {
-      content: "↗";
-      font-size: 11px;
-      margin-left: 4px;
-      color: #9ca3af;
+      font-weight: 800;
     }
 
     .contact-top {
@@ -64,78 +45,131 @@
       gap: 10px;
     }
 
-    .phone {
-      padding: 10px 16px;
+    .btn {
+      height: 44px;
+      padding: 0 18px;
       border-radius: 999px;
+      font-size: 15px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       border: 1px solid #d1d5db;
       background: #fff;
-      font-weight: 600;
-      font-size: 14px;
     }
 
-    .kakao {
-      padding: 10px 16px;
-      border-radius: 999px;
+    .btn-kakao {
       background: #FEE500;
       color: #000;
-      font-weight: 700;
+      border: 1px solid rgba(0,0,0,.1);
+    }
+
+    /* ---------- NAV ---------- */
+    .nav-bar {
+      border-top: 1px solid #e5e7eb;
+      background: #fff;
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      background: #fff;
       font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav a:hover {
+      background: #f1f5f9;
+    }
+
+    /* ---------- MAIN ---------- */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
     }
 
     section {
-      margin-top: 48px;
-    }
-
-    h1 {
-      font-size: 32px;
-      margin-bottom: 16px;
-    }
-
-    h2 {
-      font-size: 24px;
-      margin-bottom: 12px;
+      margin-bottom: 60px;
     }
 
     .card {
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 28px;
-      margin-bottom: 24px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      background: #fff;
+      border-radius: 18px;
+      padding: 32px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
     }
 
+    /* HERO */
     .hero {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.2fr 1fr;
       gap: 32px;
       align-items: center;
     }
 
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 16px;
+    }
+
     .hero img {
       width: 100%;
-      border-radius: 16px;
+      border-radius: 18px;
       object-fit: cover;
     }
 
-    .programs {
+    /* GRID */
+    .grid-3 {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
     }
 
+    /* IMAGE SECTION */
+    .image-section img {
+      width: 100%;
+      border-radius: 18px;
+    }
+
+    /* FOOTER */
     footer {
-      margin-top: 60px;
       background: #ffffff;
       border-top: 1px solid #e5e7eb;
-      padding: 32px 20px;
+      padding: 40px 20px;
       font-size: 13px;
       color: #4b5563;
     }
 
-    footer .contact-bottom {
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-contact {
       margin-top: 16px;
       display: flex;
       gap: 10px;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -145,97 +179,88 @@
 <header>
   <div class="header-inner">
     <div class="logo">한국영양과학연구소 KINS</div>
+    <div class="contact-top">
+      <div class="btn">064-712-0514</div>
+      <a class="btn btn-kakao" href="https://open.kakao.com/o/sAcobg7h" target="_blank">카카오톡 오픈채팅</a>
+    </div>
+  </div>
 
+  <div class="nav-bar">
     <nav class="nav">
       <a href="#services">서비스</a>
       <a href="#programs">프로그램</a>
       <a href="#process">상담절차</a>
       <a href="#about">연구소소개</a>
-      <a href="#faq">문의</a>
+      <a href="#inquiry">문의</a>
     </nav>
-
-    <div class="contact-top">
-      <div class="phone">064-712-0514</div>
-      <a class="kakao" href="https://open.kakao.com/o/sAcobg7h" target="_blank">카카오톡 오픈채팅</a>
-    </div>
   </div>
 </header>
 
-<main class="container">
+<main>
 
   <!-- HERO -->
   <section class="card hero">
     <div>
       <h1>세포과학 기반 맞춤 영양 컨설팅</h1>
       <p>
-        한국영양과학연구소(KINS)는<br>
-        제주시에서 <strong>2024년 2월 10일 정식 개업</strong>한<br>
-        영양과학·세포과학 기반 연구 및 교육 컨설팅 기관입니다.
+        연구소 소개 문구 위치.<br>
+        이 영역의 문장은 자유롭게 수정해도 레이아웃이 깨지지 않습니다.
       </p>
     </div>
-    <img src="7599e4c4-9155-4afb-b094-490e31e808a6.png" alt="한국영양과학연구소 메인 이미지">
+    <img src="7599e4c4-9155-4afb-b094-490e31e808a6.png" alt="메인 이미지">
   </section>
 
   <!-- SERVICES -->
   <section id="services">
     <h2>서비스</h2>
-    <div class="programs">
-      <div class="card">
-        <strong>맞춤 영양 컨설팅</strong>
-        <p>개인의 현재 컨디션과 목표에 맞춰 실행 가능한 영양 전략을 설계합니다.</p>
-      </div>
-      <div class="card">
-        <strong>생활습관 컨설팅</strong>
-        <p>수면·활동·식사 루틴을 점검하고 지속 가능한 변화를 돕습니다.</p>
-      </div>
-      <div class="card">
-        <strong>안전성 중심 설계</strong>
-        <p>영유아·임산부·노약자까지 고려한 과학적 근거 우선 설계.</p>
-      </div>
+    <div class="grid-3">
+      <div class="card">서비스 설명 영역</div>
+      <div class="card">서비스 설명 영역</div>
+      <div class="card">서비스 설명 영역</div>
     </div>
   </section>
 
   <!-- PROGRAMS -->
   <section id="programs">
-    <h2>핵심 프로그램</h2>
-    <div class="programs">
-      <div class="card">다이어트 컨디션 설계</div>
-      <div class="card">세포 컨디션 & 재생 기반 설계</div>
-      <div class="card">항노화 (고도화 예정)</div>
+    <h2>프로그램</h2>
+    <div class="grid-3">
+      <div class="card">프로그램 1</div>
+      <div class="card">프로그램 2</div>
+      <div class="card">프로그램 3</div>
     </div>
   </section>
 
   <!-- IMAGE 2 -->
-  <section class="card">
-    <img src="healthcare-8940018_1920.jpg" alt="영양과학 이미지" style="width:100%; border-radius:16px;">
+  <section class="image-section card">
+    <img src="healthcare-8940018_1920.jpg" alt="영양 설계 이미지">
   </section>
 
   <!-- ABOUT -->
   <section id="about" class="card">
     <h2>연구소 소개</h2>
     <p>
-      한국영양과학연구소는 교육서비스업 및 의학·약학 연구개발업으로 등록된<br>
-      합법적인 연구기관입니다.
+      연구소 소개 문구 영역.<br>
+      법적·신뢰 문구를 자유롭게 수정 가능.
     </p>
-    <p>
-      본 연구소는 의료기관이 아니며,<br>
-      모든 내용은 건강관리 및 생활습관 개선을 위한 교육·컨설팅 목적입니다.
-    </p>
+  </section>
+
+  <!-- INQUIRY -->
+  <section id="inquiry" class="card">
+    <h2>문의</h2>
+    <p>문의 안내 문구</p>
+    <div class="footer-contact">
+      <div class="btn">064-712-0514</div>
+      <a class="btn btn-kakao" href="https://open.kakao.com/o/sAcobg7h" target="_blank">카카오톡 오픈채팅</a>
+    </div>
   </section>
 
 </main>
 
 <footer>
-  <div>
-    © 2024 Korea Nutrition Science Institute (한국영양과학연구소)<br>
-    대표자 박동채 | 사업자등록번호 154-02-03045<br>
-    개업일 2024년 2월 10일<br>
-    제주특별자치도 제주시 연문4길 1, 1층
-  </div>
-
-  <div class="contact-bottom">
-    <div class="phone">064-712-0514</div>
-    <a class="kakao" href="https://open.kakao.com/o/sAcobg7h" target="_blank">카카오톡 오픈채팅</a>
+  <div class="footer-inner">
+    © 한국영양과학연구소 KINS<br>
+    제주특별자치도 제주시 연문4길 1, 1층<br>
+    본 연구소는 의료기관이 아니며 건강·영양 컨설팅을 제공합니다.
   </div>
 </footer>
 
